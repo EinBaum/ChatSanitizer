@@ -1,0 +1,11 @@
+## Interface: 11200
+## Title: ChatSanitizer
+## Notes: For a good clean chat expierence.
+## Author: Avi
+##
+## Dependencies:
+## SavedVariables:
+## OptionalDeps:
+## X-Category: Chat/Communication
+
+ChatSanitizer.lua
