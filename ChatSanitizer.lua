@@ -1,7 +1,7 @@
 local Old_WIM_FilterResult
 
 local function filter(text)
-	local count = strlen(gsub(text,"([%w%s%p]+)",""))
+	local count = strlen(gsub(strlower(text),"([%w%s%pß¿¡łæœàáâäåăãąčćçďèéêëęěğìíîïıİñńňòóôöőøõřśşșšťùúûüűůŵŷÿýźżž]+)",""))
 	if count < 3 then
 		return text
 	else
