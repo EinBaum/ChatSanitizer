@@ -196,12 +196,8 @@ end
 function ChatSanitizer:Filter(text)
 	local count = self:RateMessage(text)
 	if count >= 100 then
-		ChatFrame1:AddMessage("Blocked ("..count.."): "..text)
 		return ""
 	else
-		if count > 50 then
-			ChatFrame1:AddMessage(count)
-		end
 		return text
 	end
 end
