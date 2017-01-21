@@ -208,6 +208,7 @@ function ChatSanitizer:Archive(text, sender)
 		tremove(self.blockHistory,1)
 	end
 	tinsert(self.blockHistory,{[1] = sender, [2] = text})
+	self:SetText("Blocked Spam: "..ChatSanitizer.numBlocked)
 	self:UpdateTooltip()
 end
 
