@@ -366,3 +366,12 @@ function ChatSanitizer:OnTooltipUpdate()
 							'textB', 1)
 	end
 end
+
+function ChatSanitizer:OnClick()
+	while getn(self.blockHistory) > 0
+		do tremove(self.blockHistory)
+	end
+	ChatSanitizer.numBlocked = 0
+	self:SetText("ChatSanitizer")
+	self:UpdateTooltip()
+end
