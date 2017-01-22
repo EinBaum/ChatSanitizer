@@ -119,7 +119,6 @@ FilterLib.words = {
 	["bonus"] = 10,
 	["with%s*in%s*%d"] = 10,
 	["e%-shop"] = 50,
-	["c{circle}m"] = 25,
 	["c@m"] = 25,
 	["buyeugold"] = 80,
 	["byeugold"] = 80,
@@ -166,7 +165,7 @@ function FilterLib:RateMessage(s)
 	local weight1 = self:SpacedWordCheck(s)
 	local weight2 = self:SubstringCheck(s)
 	local weight3 = self:SubstringCheck(sCompact)
-
+	
 	local weight = weight1
 	if weight2 > weight then
 		weight = weight2
@@ -225,7 +224,7 @@ function FilterLib:SubstringCheck(s)
 
 	weight = self:TestSubstringWords(wordsFound, s)
 
-	weight = weight + self:TestSubstringWords(wordsFound, string.gsub(s,"^%w",""))
+	weight = weight + self:TestSubstringWords(wordsFound, string.gsub(s,"[^%w]",""))
 
 	-- Revert numerics
 	s = self:NumbersToLetters(s)

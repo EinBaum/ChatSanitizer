@@ -17,7 +17,7 @@ function ChatSanitizer:ChatFrame_OnEvent()
 	local msg
 	if event == "CHAT_MSG_CHANNEL" or event == "CHAT_MSG_WHISPER" or event == "CHAT_MSG_SAY" or event == "CHAT_MSG_YELL" or event == "CHAT_MSG_BATTLEGROUND" or event == "CHAT_MSG_BATTLEGROUND_LEADER" or event == "CHAT_MSG_EMOTE" then
 		msg = arg1
-		arg1 = self:Filter(arg1)
+		arg1 = FilterLib:Filter(arg1)
 	end
 	if arg1 ~= "" then
 		if type(self.hooks["ChatFrame_OnEvent"]) == "function" then
