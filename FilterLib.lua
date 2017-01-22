@@ -134,6 +134,7 @@ FilterLib.words = {
 	["mmook"] = 80,
 	["3w%."] = 25,
 	["3w%,"] = 25,
+	["%d+g=%d+"] = 20,
 }
 
 function FilterLib:Filter(text)
