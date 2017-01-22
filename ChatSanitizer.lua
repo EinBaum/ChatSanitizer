@@ -32,7 +32,7 @@ function ChatSanitizer:ChatFrame_OnEvent()
 end
 
 function ChatSanitizer:WIM_FilterResult(msg)
-	local filtered = ChatSanitizer:Filter(msg)
+	local filtered = FilterLib:Filter(msg)
 	if filtered ~= "" then
 		return self.hooks.WIM_FilterResult(msg)
 	else
@@ -41,7 +41,7 @@ function ChatSanitizer:WIM_FilterResult(msg)
 end
 
 function ChatSanitizer:OnReceiveWhisper()
-	arg1 = ChatSanitizer:Filter(arg1)
+	arg1 = FilterLib:Filter(arg1)
 	if arg1 ~= "" then
 		self.hooks[WhisperFu]["OnReceiveWhisper"](WhisperFu)
 	end

@@ -1,7 +1,8 @@
-ChatSanitizer.cachedRatings = {}
+FilterLib = {}
+FilterLib.cachedRatings = {}
 
 -- Stolen from SpamMeNot
-ChatSanitizer.words = {
+FilterLib.words = {
 	["5uneed"] = 50,
 	["gold4guild"] = 50,
 	["mm4ss"] = 50,
@@ -132,7 +133,7 @@ ChatSanitizer.words = {
 	["mmook"] = 50,
 }
 
-function ChatSanitizer:Filter(text)
+function FilterLib:Filter(text)
 	local count = self:RateMessage(text)
 	if count >= 100 then
 		return ""
@@ -143,7 +144,7 @@ end
 
 -- The main spam rating formula.  Takes a string and returns a rating.  >= 100 is considered
 -- to be spam.
-function ChatSanitizer:RateMessage(s)
+function FilterLib:RateMessage(s)
 
 	-- Strip out wow hyperlinks and colors
 	s = self:RemoveHyperLinks(s)
@@ -179,14 +180,14 @@ function ChatSanitizer:RateMessage(s)
 	return weight
 end
 
-function ChatSanitizer:RemoveHyperLinks(text)
+function FilterLib:RemoveHyperLinks(text)
 	text = string.gsub(text, "|H.-|h(.-)|h", "%1")
 	text = string.gsub(text, "|c%w%w%w%w%w%w%w%w(.-)|r", "%1")
 	return text
 end
 
 -- Regular spaced word check.
-function ChatSanitizer:SpacedWordCheck(s)
+function FilterLib:SpacedWordCheck(s)
 	local weight = 0
 	local wordsChecked = {}
 
@@ -211,7 +212,7 @@ function ChatSanitizer:SpacedWordCheck(s)
 end
 
 -- Simply search for word matches anywhere in the text
-function ChatSanitizer:SubstringCheck(s)
+function FilterLib:SubstringCheck(s)
 	local word = ""
 	local value = 0
 	local weight = 0
@@ -233,7 +234,7 @@ end
 
 -- Searches for substring matches for words in the word list
 -- Will not check for words listed in wordsFound
-function ChatSanitizer:TestSubstringWords(wordsFound, s)
+function FilterLib:TestSubstringWords(wordsFound, s)
 	local word = ""
 	local value = 0
 	local weight = 0
@@ -252,7 +253,7 @@ end
 
 -- Tests individual words and returns a summed spam rating.  Words
 -- listed in wordsChecked are not checked again
-function ChatSanitizer:TestWords(wordsChecked, s)
+function FilterLib:TestWords(wordsChecked, s)
 	local w = ""
 	local weight = 0
 	-- Check individual words
@@ -267,7 +268,7 @@ function ChatSanitizer:TestWords(wordsChecked, s)
 	return weight;
 end
 
-function ChatSanitizer:NumbersToLetters(s)
+function FilterLib:NumbersToLetters(s)
 	s = string.gsub(s, "0" , "o")
 	s = string.gsub(s, "1" , "l")
 	s = string.gsub(s, "3" , "e")
@@ -276,7 +277,7 @@ function ChatSanitizer:NumbersToLetters(s)
 	return s
 end
 
-function ChatSanitizer:LettersToNumbers(s)
+function FilterLib:LettersToNumbers(s)
 	s = string.gsub(s, "o" , "0")
 	s = string.gsub(s, "l" , "1")
 	s = string.gsub(s, "e" , "3")
