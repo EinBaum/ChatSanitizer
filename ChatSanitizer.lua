@@ -5,7 +5,7 @@ ChatSanitizer.numBlocked = 0
 local Tablet = AceLibrary("Tablet-2.0")
 
 ChatSanitizer.name = "FuBar_ChatSanitizer"
-ChatSanitizer.version = "1.0." .. string.sub("$Revision: 1200 $", 12, -3)
+ChatSanitizer.version = "1.0." .. string.sub("$Revision: 1310 $", 12, -3)
 ChatSanitizer.hasIcon = "Interface\\Icons\\Ability_Seal"
 ChatSanitizer.defaultPosition = 'LEFT'
 ChatSanitizer.defaultMinimapPosition = 180
