@@ -13,7 +13,6 @@ ChatSanitizer.canHideText = false
 ChatSanitizer.hasNoColor = true
 ChatSanitizer.cannotDetachTooltip = true
 
-
 function ChatSanitizer:ChatFrame_OnEvent()
 	local msg
 	if event == "CHAT_MSG_CHANNEL" or event == "CHAT_MSG_WHISPER" or event == "CHAT_MSG_SAY" or event == "CHAT_MSG_YELL" or event == "CHAT_MSG_BATTLEGROUND" or event == "CHAT_MSG_BATTLEGROUND_LEADER" or event == "CHAT_MSG_EMOTE" then
