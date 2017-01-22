@@ -24,6 +24,7 @@ FilterLib.words = {
 	["deliveries"] = 30,
 	["manfarm"] = 20,
 	["power"] = 25,
+	["povver"] = 25,
 	["level"] = 25,
 	["lvl"] = 20,
 	["mmo"] = 15,
@@ -120,17 +121,19 @@ FilterLib.words = {
 	["e%-shop"] = 50,
 	["c{circle}m"] = 25,
 	["c@m"] = 25,
-	["buyeugold"] = 50,
-	["byeugold"] = 50,
-	["goldcat"] = 50,
+	["buyeugold"] = 80,
+	["byeugold"] = 80,
+	["goldcat"] = 80,
 	["m%s*4"] = 15,
-	["pvpbank"] = 50,
-	["g4wow"] = 50,
-	["okogames"] = 50,
-	["mmotank"] = 50,
-	["elysiumnwow"] = 50,
-	["mmogo"] = 50,
-	["mmook"] = 50,
+	["pvpbank"] = 80,
+	["g4wow"] = 80,
+	["okogames"] = 80,
+	["mmotank"] = 80,
+	["elysiumnwow"] = 80,
+	["mmogo"] = 80,
+	["mmook"] = 80,
+	["3w%."] = 25,
+	["3w%,"] = 25,
 }
 
 function FilterLib:Filter(text)
@@ -156,7 +159,7 @@ function FilterLib:RateMessage(s)
 		end
 	end
 
-	local spacestrip = "[^1234567890abcdefghijklmnopqrstuvwxyzrÄÂÊÁËÈÍÎÏÌÓÔÒÚÛÙı]+"
+	local spacestrip = "[^1234567890abcdefghijklmnopqrstuvwxyzr&Ä£$!.,%<>=-?‡·‚‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˘˙˚¸]+"
 	local sCompact = string.gsub(s, spacestrip, "")
 
 	local weight1 = self:SpacedWordCheck(s)
@@ -196,7 +199,7 @@ function FilterLib:SpacedWordCheck(s)
 
 	-- Remove double spacing and replace odd characters used for spaces with real ones
 	-- and check again
-	local spacestrip = "[^1234567890abcdefghijklmnopqrstuvwxyzrÄÂÊÁËÈÍÎÏÌÓÔÒÚÛÙı]+"
+	local spacestrip = "[^1234567890abcdefghijklmnopqrstuvwxyzr&Ä£$!.,%<>=-?‡·‚‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˘˙˚¸]+"
 	s = string.gsub(s, spacestrip, " ")
 	weight = weight + self:TestWords(wordsChecked, s)
 
@@ -220,6 +223,8 @@ function FilterLib:SubstringCheck(s)
 	local wordsFound = {}
 
 	weight = self:TestSubstringWords(wordsFound, s)
+
+	weight = weight + self:TestSubstringWords(wordsFound, string.gsub(s,"^%w",""))
 
 	-- Revert numerics
 	s = self:NumbersToLetters(s)
