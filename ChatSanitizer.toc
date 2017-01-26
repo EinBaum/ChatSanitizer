@@ -20,4 +20,5 @@ libs\Tablet-2.0\Tablet-2.0.lua
 libs\FuBarPlugin-2.0\FuBarPlugin-2.0.lua
 
 FilterLib.lua
+FriendLib.lua
 ChatSanitizer.lua
