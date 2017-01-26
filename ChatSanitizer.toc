@@ -1,7 +1,7 @@
 ## Interface: 11200
 ## Title: ChatSanitizer
 ## Notes: For a good clean chat expierence.
-## Author: Avi
+## Author: Avi, EinBaum
 ##
 ## Dependencies:
 ## SavedVariables:
