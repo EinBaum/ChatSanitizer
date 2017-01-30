@@ -26,13 +26,19 @@ if not FriendLib then
 
 	function FriendLib:CheckFriendList()
 		for i = 1, GetNumFriends() do
-			FriendLib:AddFriend(GetFriendInfo(i))
+			local name = GetFriendInfo(i)
+			if name then
+				FriendLib:AddFriend(name)
+			end
 		end
 	end
 
 	function FriendLib:CheckGuild()
 		for i = 1, GetNumGuildMembers() do
-			FriendLib:AddFriend(GetGuildRosterInfo(i))
+			local name = GetGuildRosterInfo(i)
+			if name then
+				FriendLib:AddFriend(name)
+			end
 		end
 	end
 
