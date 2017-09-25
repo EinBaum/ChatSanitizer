@@ -121,6 +121,7 @@ if not FilterLib then
 		["3w%,"] = 25,
 		["%d+g=%d+"] = 20,
 		["legacy-boost"] = 80,
+		["money-circle"] = 80,
 	}
 
 	function FilterLib:Filter(text)
