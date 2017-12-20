@@ -128,6 +128,8 @@ if not FilterLib then
 		["legacy-boost"] = 80,
 		["rnrnoo%!<"] = 80,
 		["doublemotank"] = 80,
+		["money-circle"] = 80,
+		["ovewowhaha"] = 80,
 	}
 
 	function FilterLib:Filter(text)
