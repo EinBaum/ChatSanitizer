@@ -4,7 +4,7 @@
 ## Author: Avi, EinBaum
 ##
 ## Dependencies:
-## SavedVariables:
+## SavedVariables: ChatSanitizerDB
 ## OptionalDeps: Ace2, DewdropLib, TabletLib, FuBar, FuBarPlugin-2.0, FuBar_WhisperFu, WIM
 ## X-Category: Chat/Communication
 

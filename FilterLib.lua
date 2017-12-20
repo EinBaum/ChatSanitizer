@@ -68,12 +68,17 @@ if not FilterLib then
 		["days"] = 10,
 		["discount"] = 20,
 		["code"] = 10,
+		["web:"] = 25,
 		["www"] = 25,
 		["3vv"] = 25,
 		["wvvw"] = 25,
+		["three w"] = 25,
 		["%.com"] = 25,
 		["%,com"] = 25,
 		[" com"] = 10,
+		["%.-o-"] = 25,
+		["%.c--"] = 25,
+		["%.--m"] = 25,
 		["dot%s*com"] = 25,
 		["dot%s*cn"] = 75,
 		["%.cn"] = 75,
@@ -121,6 +126,8 @@ if not FilterLib then
 		["3w%,"] = 25,
 		["%d+g=%d+"] = 20,
 		["legacy-boost"] = 80,
+		["rnrnoo%!<"] = 80,
+		["doublemotank"] = 80,
 	}
 
 	function FilterLib:Filter(text)
